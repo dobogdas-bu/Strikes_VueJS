@@ -337,7 +337,7 @@ li {
 
 
 table {
-    table-layout: fixed;
+    
     border: solid 2px;
     text-align: left;
 
@@ -386,6 +386,12 @@ tr:nth-child(even) {
 .div-form-component {
     padding-top: 5px;
 }
+
+.div-form-component-rb {
+    padding-bottom: 10px;
+    
+}
+
 .input-form-field {
     display: block;
     color: black;
@@ -407,12 +413,26 @@ tr:nth-child(even) {
     border-radius: 2px 2px 0px 0px;
 }
 select {
-    width: 100%;   
-    
+    width: 100%;    
     border-bottom: 1px outset;
     padding: 10px;
     background-color: rgb(240, 233, 247);
     border-radius: 2px 2px 0px 0px;
+}
+
+#selectLeague{
+        
+    border-bottom: 1px outset;
+    width: 95%;
+    background-color: rgb(240, 233, 247);
+    border-radius: 2px 2px 0px 0px;
+    margin: 5px;
+    
+}
+
+ .rb {
+    width: 20px;
+    
 }
 
 
@@ -430,6 +450,7 @@ input:disabled {
     opacity: .5;
     background-color: rgb(132, 121, 121);
 }
+
 
 
 

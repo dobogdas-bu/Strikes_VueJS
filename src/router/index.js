@@ -6,6 +6,7 @@ import Register from '../views/Register.vue'
 import HowToPlay from '../views/HowToPlay.vue'
 import Login from '../views/auth/Login.vue'
 import ViewAllScores from '../views/ViewAllScores.vue'
+import Games from '../views/Games'
 
 
 const routes = [
@@ -45,6 +46,12 @@ const routes = [
     path: '/ViewAllScores',
     name: 'ViewAllScores',
     component: ViewAllScores
+  },
+  {
+    path: '/Games',
+    name: 'Games',
+    component: Games
+
   }
 ]
 

@@ -12,16 +12,16 @@
                                 <th>Date</th>
                                 <th>Name</th>
                                 <th>Score</th>
-                                <th>League</th>
+                                <th>League (if applicable)</th>
                             </tr>
                         </thead>
                         <tbody>
                             
-                            <tr v-for="score in scores" :key="score.id">
+                            <tr v-for="score in sorted" :key="score.id">
                                 <td>{{score.game_date}}</td>
                                 <td>{{score.first_name}} {{ score.last_name }}</td>
                                 <td>{{score.total_score}}</td>
-                                <td>{{ score.league_name }}</td>
+                                <td>{{score.league_name }}</td>
                             </tr>                       
                         </tbody>
                     </table>
@@ -36,24 +36,26 @@
     
     <script>
     import getScoresWithData from '../composables/getScoresWithData'
-
+    import { computed } from 'vue'
     
     
     export default{
-    name: 'Scores',
+    
     
     setup(){
         const {scores, error, load} = getScoresWithData()
     
         load()
         
-
+        const sorted = computed(()=>{
+        return scores.value.sort((a,b)=> parseInt(b.total_score)-parseInt(a.total_score))
+    })
         
       
     
        
     
-        return {scores, error,load}
+        return {scores, error,load, sorted}
         }
         
         

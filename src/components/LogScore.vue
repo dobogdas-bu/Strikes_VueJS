@@ -24,7 +24,7 @@
                     min="0" id="totalScore" v-model="totalScore" required>
             </div>
             <div class="div-form-component">
-                <label for="gameId" class="input-form-field">GameID (for testing purposes):</label>
+                <label for="gameId" class="input-form-field">GameID (for testing purposes):</label><RouterLink :to="{ name: 'Games' }">Add New Game</RouterLink>
                 <select @change="handleChange"  id="selectGameId" required>
                     <option class="input-form-field" selected disabled value="">Select a Game</option>                  
                     <option class="input-form-field"  v-for="game in games" :key=game.game_id :value="game.game_id">{{ game.game_id }}</option>                    
