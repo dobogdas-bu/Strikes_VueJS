@@ -10,19 +10,19 @@
             </label>
             <ul class="nav-ul">
 
-                <li><router-link :to="{ name: 'Home' }">Home</router-link></li>
+                <router-link @click="closeMenu" :to="{ name: 'Home' }"><li>Home</li></router-link>
 
 
-                <li><router-link :to="{ name: 'Locations' }">Locations</router-link></li>
+                <router-link @click="closeMenu" :to="{ name: 'Locations' }"><li>Locations</li></router-link>
 
 
-                <li><router-link :to="{ name: 'HowToPlay' }">How to Play</router-link></li>
+                <router-link @click="closeMenu" :to="{ name: 'HowToPlay' }"><li>How to Play</li></router-link>
 
 
-                <li><router-link :to="{ name: 'RegisterAlley' }">Register Alley</router-link></li>
+                <router-link @click="closeMenu" :to="{ name: 'RegisterAlley' }"><li>Register Alley</li></router-link>
 
-                <li><router-link :to="{ name: 'Register' }">Create Account</router-link></li>
-                <li><router-link :to="{ name: 'ViewAllScores'}">View All Scores</router-link></li>
+                <router-link @click="closeMenu" :to="{ name: 'Register' }"><li>Create Account</li></router-link>
+                <router-link @click="closeMenu" :to="{ name: 'ViewAllScores'}"><li>View All Scores</li></router-link>
 
 
             </ul>
@@ -31,7 +31,12 @@
     </header>
 </template>
 
-<script>
+<script setup>
+function closeMenu(){
+    document.querySelector('#menu-toggle').click()
+
+}
+
 
 </script>
 

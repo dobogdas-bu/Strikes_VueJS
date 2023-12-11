@@ -10,7 +10,7 @@ const loadGames = async()=> {
 
 const url = 'https://strikes-api.onrender.com/games'
     try {
-        const res = await fetch('url')
+        const res = await fetch(url)
         if(!res.ok){
             error.value ='Data does not exist'
         }
@@ -18,7 +18,7 @@ const url = 'https://strikes-api.onrender.com/games'
         // scores.value.sort((a,b)=> parseInt(b.score)-parseInt(a.score))
     } catch(err){
         errorGames.value = err.message
-        console.log(errorPlayers.value)
+        console.log(errorGames.value)
     }
 
 }
