@@ -578,6 +578,11 @@ button:hover {
 /* Media query #1 */
 @media all and (max-width: 50em) {
 
+    main {
+        padding-left: 5%;
+        padding-right: 5%;
+
+    }
 
     header {
         display: flex;
@@ -682,9 +687,10 @@ button:hover {
 
 /* Media query #3 */
 @media all and (max-width: 28rem) {
-    .main-grid {
-        padding-left: 0px;
-        padding-right: 0px;
+    main {
+        padding-left: 5%;
+        padding-right: 5%;
+
     }
 
     .div-form-component input {
