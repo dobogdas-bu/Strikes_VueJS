@@ -2,7 +2,7 @@
     <section>
         <h2>Add New Game</h2>
         <form @submit.prevent="handleSubmit" class="form">
-            <Banner v-if="submitted" @closeBanner="() => {
+            <Banner v-if="submitted" :gameId="gameId" @closeBanner="() => {
                 submitted = false
                 errorAddGame = null
             }" />

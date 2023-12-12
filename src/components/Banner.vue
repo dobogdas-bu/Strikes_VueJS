@@ -1,7 +1,7 @@
 <template>
 
     <div v-if="!error" class="banner">      
-        <p>Submission Received</p>     
+        <p>Submission Received. ItemId: {{ gameId }}</p>     
         <div class="exit-button-container" @click="closeBanner">
                 <div class="exit-button"></div>
         </div>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  props: ['error'],
+  props: ['error','gameId'],
   components: { },
   setup() {
 
