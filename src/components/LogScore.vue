@@ -1,7 +1,8 @@
 <template>
     <section>
         <h2>Log a Score</h2>
-        <form @submit.prevent="handleSubmit" class="form">
+        <div v-if="!players.length || !games.length" class="spinner"></div>
+        <form @submit.prevent="handleSubmit" class="form" v-else>
             <Banner v-if="submitted" @closeBanner="() => {
                 submitted = false
                 error = null

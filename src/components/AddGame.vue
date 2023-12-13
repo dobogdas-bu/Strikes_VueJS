@@ -1,7 +1,8 @@
 <template>
     <section>
         <h2>Add New Game</h2>
-        <form @submit.prevent="handleSubmit" class="form">
+        <div v-if="!reservations.length || !leagues.length || !alleys.length" class="spinner"></div>
+        <form @submit.prevent="handleSubmit" class="form" v-else>
             <Banner v-if="submitted" :gameId="gameId" @closeBanner="() => {
                 submitted = false
                 errorAddGame = null

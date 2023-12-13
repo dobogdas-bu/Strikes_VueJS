@@ -1,6 +1,7 @@
 <template>
     <section>
-        <article id="allScores">
+        <div v-if="!scores.length" class="spinner"></div>
+        <article id="allScores" v-else>
             <h2>Top Scores</h2>
             <div v-if="error">{{ error }}</div>
             <div v-if="scores.length"></div>

@@ -1,7 +1,8 @@
 <template>
-    <section>
-        <article id="scores">
-            <h2>Top Scores</h2>
+    <section><h2>Top Scores</h2>
+        <div v-if="!scores.length" class="spinner"></div>
+           <article id="scores" v-else>
+            
             <div v-if="error">{{ error }}</div>
             <div v-if="scores.length"></div>
 
@@ -59,7 +60,7 @@
 
 <script>
 import getScoresWithData from '../composables/getScoresWithData'
-import { ref, reactive } from 'vue'
+import { ref} from 'vue'
 import { computed } from 'vue'
 
 
