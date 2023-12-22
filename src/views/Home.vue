@@ -5,7 +5,7 @@
     <Scores :filter="'league'" :key="compKey" v-if="!sessionStore.showLanding && userStore.stateUser"><h2 class="stats">League Play</h2></Scores>
     <Scores :filter="'all'" :key="compKey" v-if="!sessionStore.showLanding && userStore.stateUser"><h2 class="stats">All Time</h2></Scores>
     <Scores :filter="'single'" @noScores="()=>{ showScores = false}" :key="compKey" v-if="userStore.stateUser && showScores"><h2 class="stats">My top scores</h2></Scores>
-    <ViewAllScores v-else></ViewAllScores>
+    <ViewAllScores v-if="!sessionStore.showLanding && !userStore.stateUser"></ViewAllScores>
     <LogScore @updateScores="forceRender" v-if="userStore.stateUser"/>
     <section v-if="userStore.stateUser"><ProfileModal/></section>
     
