@@ -19,7 +19,7 @@
         <div class="div-form-submit">
             <button id="login">Login</button>
             <router-link id="create-account-link" @click="()=>{emit('closeModal')
-        sessionStore.setLanding(false)}" :to="{ name: 'Register' }"><span>Create Account</span></router-link>
+            sessionStore.setLanding(false)}" :to="{ name: 'Register' }"><span>Create Account</span></router-link>
         </div>
 
     </form>

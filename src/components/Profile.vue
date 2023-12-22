@@ -145,17 +145,27 @@ span:hover{
     border-radius: 3px;
     cursor: pointer;
     box-shadow: -2px 2px 4px 4px rgb(178, 129, 223);
-
 }
 
 
 @media all and (max-width: 50em) {
 
 .sidenav span{
-margin-bottom: 2px;
+margin-bottom: 8px;
 }
 .content {
     width: 100%;
+}
+
+span:hover{
+    transition: .25s ease;
+    border: none;
+    color: white;
+    background: rgb(178, 129, 223);  
+    border-radius: 3px;
+    cursor: pointer;
+   
+    
 }
 
 

@@ -1,12 +1,12 @@
 <template>
     <div class="profile-modal">
         <h2>Profile</h2>
-        <p>Hello, {{ userStore.stateUser.first_name}}</p>
+        <p>Hello, {{ userName}}</p>
     <br />
         <router-link id="profile-link" @click="closeModal" :to="{ name: 'Profile' }"><span><u>Manage Account</u></span></router-link>
-        <p>Games Logged: {{ userStore.stats.gamesLogged}}</p>
-        <p>Total Score: {{ userStore.stats.totalScore }}</p>
-        <p>Score per Game: {{  userStore.stats.average }}</p>
+        <p v-if="gamesLogged">Games Logged: {{ gamesLogged}}</p>
+        <p v-if="totalScore">Total Score: {{ totalScore }}</p>
+        <p v-if="average">Score per Game: {{  average }}</p>
         
         <p>Favorite Alley: Roll House</p>
         <span @click="handleLogout"><u>Logout</u></span>
@@ -19,9 +19,29 @@ import { ref, defineEmits } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from "../stores/UserStore"
 import logout from '../composables/logout'
+import { watchEffect } from 'vue'
 const userStore = useUserStore()
 const router = useRouter()
 const userName = userStore.stateUser.first_name;
+const gamesLogged = ref(0)
+const totalScore = ref(0)
+const average = ref(0)
+
+
+if(userStore.stats.gamesLogged && userStore.stats.totalScore){
+    gamesLogged.value = userStore.stats.gamesLogged
+    totalScore.value = userStore.stats.totalScore
+    average.value = totalScore.value / gamesLogged.value
+}
+watchEffect(() => {
+    
+    gamesLogged.value = userStore.stats.gamesLogged
+    totalScore.value = userStore.stats.totalScore
+    average.value = totalScore.value / gamesLogged.value
+
+})
+
+
 const emit = defineEmits(['closeModal'])
 const closeModal = () => {
     emit('closeModal')
@@ -36,6 +56,7 @@ const handleLogout = async () => {
 
     emit('closeModal')
     userStore.setUser('')
+    userStore.setStats('')
 
 
     router.push('/')
@@ -51,11 +72,7 @@ const handleLogout = async () => {
 </script>
 
 <style scoped>
-span{
-    
-    
-    
-}
+
 p{
     padding-left:0;
     margin:0;

@@ -7,7 +7,7 @@
     <Scores :filter="'single'" @noScores="()=>{ showScores = false}" :key="compKey" v-if="userStore.stateUser && showScores"><h2 class="stats">My top scores</h2></Scores>
     <ViewAllScores v-if="!sessionStore.showLanding && !userStore.stateUser"></ViewAllScores>
     <LogScore @updateScores="forceRender" v-if="userStore.stateUser"/>
-    <section v-if="userStore.stateUser"><ProfileModal/></section>
+    <section v-if="userStore.stateUser && !sessionStore.showLanding"><ProfileModal /></section>
     
     <!-- stats component? configure dashboard in settings? -->
 

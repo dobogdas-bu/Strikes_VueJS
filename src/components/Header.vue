@@ -29,7 +29,7 @@
                     <li>Register Alley</li>
                 </router-link>
 
-                
+
                 <router-link @click="closeMenu" :to="{ name: 'ViewAllScores' }">
                     <li>View All Scores</li>
                 </router-link>
@@ -39,22 +39,31 @@
                 <router-link v-if="!userStore.stateToken" @click="closeMenu" :to="{ name: 'Login' }">
                     <li id="li-login"><button @mouseover="showLogin = true" id="loginBtn">Login</button> </li>
                 </router-link>
-                <router-link @click="closeMenu" :to="{ name: 'Profile' }" @mouseover="showAccount=true" v-else>
+                <router-link @click="closeMenu" :to="{ name: 'Profile' }" @mouseover="showAccount = true" v-else>
                     <li class="account"><span class="material-symbols-outlined">
                             account_circle
-                        </span><span>My Account</span></li>
+                        </span><span id="myAccount">My Account</span>
+                    </li>
                 </router-link>
-            </ul>
 
+            </ul>
 
         </nav>
     </header>
+    <nav :class="mobileNav">
+        <span>Hello, {{ firstName}}</span>
+        <span @click="()=>{router.push('./profile')}" class ="logout-link">My Account</span>
+        <span @click="" class="logout-link">Log a Score</span>
+        <span class="logout-link" @click="handleLogout">Logout</span>
+
+    </nav>
+    
     <div @click="closeMenu" id="login-container" @mouseleave="showLogin = false" v-if="showLogin">
         <Login ref="login" @closeModal="() => { showLogin = false }" />
     </div>
-    <div @click="closeMenu" id="login-container" @mouseleave="showAccount=false" v-if="showAccount">
-        <ProfileModal @closeModal="()=>{ showAccount=false}"/>
-    
+    <div @click="closeMenu" id="login-container" @mouseleave="showAccount = false" v-if="showAccount">
+        <ProfileModal @closeModal="() => { showAccount = false }" />
+
     </div>
 </template>
 
@@ -63,11 +72,26 @@ import Login from './Login.vue';
 import ProfileModal from './ProfileModal.vue';
 import { ref, defineEmits } from 'vue';
 import { useUserStore } from "../stores/UserStore"
+import logout from '@/composables/logout';
+import { watchEffect } from 'vue';
 const userStore = useUserStore()
 const showLogin = ref(null)
 const showAccount = ref(null)
+import { useRouter } from 'vue-router';
+const router = useRouter()
+const firstName = ref('')
+const mobileNav = ref('mobileNavHidden')
 
 
+
+if (userStore.stateUser.first_name) firstName.value = userStore.stateUser.first_name
+
+watchEffect(() => {
+    if(userStore.stateToken){
+        mobileNav.value = 'mobileNav'
+    }
+
+})
 
 
 // onMounted(() => {
@@ -84,8 +108,26 @@ function closeMenu() {
     document.querySelector('#menu-toggle').click()
 
 }
+const { res, errorLogout, loadLogout } = logout()
 
+const handleLogout = async () => {
+    mobileNav.value = "mobileNavHidden"
+    firstName.value = ''
+
+    await loadLogout()
+
+
+
+    userStore.setUser('')
+    userStore.setStats('')
+    router.push('/')
+
+    
+
+}
 
 </script>
 
-<style scoped></style>
+<style>
+
+</style>

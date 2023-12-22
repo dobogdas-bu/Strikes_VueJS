@@ -16,7 +16,7 @@ export const useUserStore = defineStore('UserStore', {
             this.stateToken = accessToken;
         },
         setStats(stats){
-            console.log(stats)
+            
             // const {gamesLogged, totalScore, average } = stats
             this.stats = stats
         }

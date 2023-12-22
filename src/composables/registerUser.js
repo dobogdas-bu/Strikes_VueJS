@@ -21,13 +21,15 @@ try {
         body: JSON.stringify(userData)
         })
         if(!res.ok){
-            error.value ='Data does not exist'
+            if(res.status ===409)
+            error.value = 'Email has already been registered. Please try again.'
+            console.log(error.value)
         }
         userId.value = await res.json()
     
         
 } catch (error) {
-    error.value = error.message
+    
      
 }
 }

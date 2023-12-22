@@ -2,10 +2,10 @@
     <div>
     <section>    
     <form @submit.prevent="handleSubmit" class="form">
-        <Banner v-if="submitted" @closeBanner="() => {
+        <!-- <Banner v-if="submitted" @closeBanner="() => {
             submitted = false
             error = null
-        }" />
+        }"><p>Account created. You are now logged in.</p></Banner> -->
         <Banner v-if="error" :error="error" @closeBanner="() => {
             submitted = false
             error = null
@@ -46,23 +46,25 @@ import Login from '@/components/Login.vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import registerUser from '../composables/registerUser'
-
+import login from '@/composables/login'
+import { useUserStore } from '@/stores/UserStore'
 export default {
     components: { Banner, Login },
     setup() {
-        
+        const userStore = useUserStore()
         const firstName = ref('')
         const lastName = ref('')
         const regEmail = ref('')
         const regPassword = ref('')
         const submitted = ref(false)
+        const router = useRouter()
 
 
         const { userId, error, load } = registerUser()
-
+        const { user ,errorLogin, loadLogin } = login()
 
         const handleSubmit = async () => {
-            let user = {
+            let newUser = {
                 firstName: firstName.value,
                 lastName: lastName.value,
                 email: regEmail.value,
@@ -70,7 +72,7 @@ export default {
                 
             }
             
-            await load(user)
+            await load(newUser)
             //check if user object is returned, adjust banner logic accordingly and reset fields
             if(userId.value){
                 submitted.value = true
@@ -78,15 +80,21 @@ export default {
                 lastName.value = null
                 regPassword.value = null
                 regEmail.value = null
-
-            }
+                await loadLogin({"email":newUser.email, "password": newUser.password})
+                if(user){
+                    userStore.setUser(user.value)
+                }
+                router.push('./')
+            }    
         }
 
 
 
 
 
-        return { firstName, lastName, regEmail, regPassword, handleSubmit, submitted, error, userId}
+
+
+        return { firstName, lastName, regEmail, regPassword, handleSubmit, submitted, error, userId, userStore}
 
     }
 
