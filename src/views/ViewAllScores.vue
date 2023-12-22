@@ -5,7 +5,7 @@
             <div v-if="error">{{ error }}</div>
             <div v-if="scores.length"></div>
 
-
+            <h2 class="stats">All Scores</h2>
             <table class="stats-table">
                 <thead>
 

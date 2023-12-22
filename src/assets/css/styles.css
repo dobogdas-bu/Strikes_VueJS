@@ -127,8 +127,7 @@ p {
 
 
 section {
-    align-self: flex-start;
-    
+    align-self: flex-start;    
     box-shadow: 1px 1px 2px 1px gray;
     list-style: none;
     border-radius: 5px;
@@ -788,8 +787,8 @@ button:hover {
 @media all and (max-width: 50em) {
 
     main {
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: 1%;
+        padding-right: 1%;
 
     }
     .main-sidenav {
@@ -956,6 +955,12 @@ button:hover {
 
     .main-landing div {
         width: 100%;
+    }
+
+    section {
+        padding: 2px;
+        margin: 0;
+        margin-bottom: 5px;
     }
 
 
