@@ -62,16 +62,16 @@ import { useSessionStore } from '@/stores/SessionStore'
                 password.value = ''
                 email.value=''
                 emit('closeModal')
-                
-            }
-            if(errorLogin.value){
-
-            }
-
-            userStore.setUser(user.value)
-            sessionStore.setLanding(false)
+                userStore.setUser(user.value)
+                sessionStore.setLanding(false)
             
             router.push('/')
+            }
+            if(errorLogin){
+
+            }
+
+
 
         }
 

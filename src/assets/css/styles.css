@@ -802,6 +802,8 @@ button:hover {
         /* grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); */
     }
     .sidenav{
+        display: flex;
+        flex-direction: row;
         position: static;
         width: 100%;
         margin-bottom: 5px;
@@ -809,6 +811,7 @@ button:hover {
     .sidenav span{
         margin-bottom: 2px;
     }
+
 
     header {
         display: flex;
@@ -926,6 +929,8 @@ button:hover {
         color: white;
         display: flex;
         justify-content: space-between;
+        padding-left: 5px;
+        padding-right: 5px;
     }
     .mobileNav span{
         padding:5px 5px 5px 5px;

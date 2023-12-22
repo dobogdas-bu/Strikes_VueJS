@@ -53,7 +53,7 @@
     <nav :class="mobileNav">
         <span>Hello, {{ firstName}}</span>
         <span @click="()=>{router.push('./profile')}" class ="logout-link">My Account</span>
-        <span @click="" class="logout-link">Log a Score</span>
+        <span @click="()=>{router.push('./log')}" class="logout-link">Log a Score</span>
         <span class="logout-link" @click="handleLogout">Logout</span>
 
     </nav>
@@ -87,8 +87,11 @@ const mobileNav = ref('mobileNavHidden')
 if (userStore.stateUser.first_name) firstName.value = userStore.stateUser.first_name
 
 watchEffect(() => {
-    if(userStore.stateToken){
+    if(userStore.stateToken && userStore.stateUser){
         mobileNav.value = 'mobileNav'
+        firstName.value = userStore.stateUser.first_name
+    } else {
+        mobileNav.value = 'mobileNavHidden'
     }
 
 })

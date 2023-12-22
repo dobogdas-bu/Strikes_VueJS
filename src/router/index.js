@@ -10,6 +10,7 @@ import PrivacyPolicy from '../views/PrivacyPolicy.vue'
 import UserDetails from '../views/UserDetails.vue'
 import Login from '../components/Login.vue'
 import Profile from '../components/Profile.vue'
+import LogScore from '../components/LogScore.vue'
 import { useUserStore } from '@/stores/UserStore';
 
 
@@ -80,6 +81,15 @@ const routes = [
     meta: {
       requiresAuth : true
     }
+  },
+  {
+    path: '/log',
+    name: 'LogScore',
+    component: LogScore,
+    meta:{
+      requiresAuth: true
+    }
+
   }
 
 ]

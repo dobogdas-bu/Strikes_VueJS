@@ -28,17 +28,14 @@ const totalScore = ref(0)
 const average = ref(0)
 
 
-if(userStore.stats.gamesLogged && userStore.stats.totalScore){
-    gamesLogged.value = userStore.stats.gamesLogged
-    totalScore.value = userStore.stats.totalScore
-    average.value = totalScore.value / gamesLogged.value
-}
+
 watchEffect(() => {
+    if(userStore.stats){
     
     gamesLogged.value = userStore.stats.gamesLogged
     totalScore.value = userStore.stats.totalScore
     average.value = totalScore.value / gamesLogged.value
-
+    }
 })
 
 
