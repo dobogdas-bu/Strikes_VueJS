@@ -772,6 +772,9 @@ button:hover {
 .mobileNav {
     display: none;
 }
+.mobileNavHidden{
+    display: none;
+}
 
 .logout-link{
     display:none;
