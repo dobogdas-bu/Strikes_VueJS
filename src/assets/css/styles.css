@@ -321,7 +321,7 @@ li {
 
 .banner {
     background: #8B00FF;
-    height: 25px;
+    height: auto;
     padding: 5px;
     padding-top: 10px;
     margin-bottom: 6px;
@@ -338,7 +338,7 @@ li {
 
 .error-banner {
     background: #e15858;
-    height: 25px;
+    height: auto;
     padding: 5px;
     margin-bottom: 2px;
     border-radius: 5px;
