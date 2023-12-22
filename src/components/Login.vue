@@ -18,7 +18,8 @@
         </div>
         <div class="div-form-submit">
             <button id="login">Login</button>
-            <router-link id="create-account-link" @click="()=>{emit('closeModal')}" :to="{ name: 'Register' }"><span>Create Account</span></router-link>
+            <router-link id="create-account-link" @click="()=>{emit('closeModal')
+        sessionStore.setLanding(false)}" :to="{ name: 'Register' }"><span>Create Account</span></router-link>
         </div>
 
     </form>
@@ -94,6 +95,7 @@ import { useSessionStore } from '@/stores/SessionStore'
     text-decoration: none;
 }
 span{
+    
     margin-left: 7px;
     color: white;
     
@@ -101,5 +103,9 @@ span{
 span:hover {
     cursor: pointer;
     color: #F812F1;
+}
+
+#create-account-link{
+    margin-top: 15px;
 }
 </style>
