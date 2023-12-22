@@ -1,5 +1,8 @@
 import {ref} from 'vue'
 
+const baseUrl=process.env.VUE_APP_BASEURL
+
+
 const getScoresWithData =()=>{
 
 const scores = ref([])
@@ -7,8 +10,8 @@ const scores = ref([])
 const error = ref(null)
 
 const load = async()=> {
-
-    const url = 'https://strikes-api.onrender.com/scoredata'
+    
+    const url = baseUrl+'scores'
     try {
         const res = await fetch(url)
         if(!res.ok){

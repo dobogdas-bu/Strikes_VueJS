@@ -1,4 +1,6 @@
 <template>
+    <div>
+    <section>    
     <form @submit.prevent="handleSubmit" class="form">
         <Banner v-if="submitted" @closeBanner="() => {
             submitted = false
@@ -11,42 +13,48 @@
         <h2>Create Account</h2>
         <div class="div-form-component">
             <label for="firstName" class="input-form-field">First Name:</label><input type="text" id="firstName"
-                v-model="firstName" required>
+                v-model="firstName"  required>
         </div>
         <div class="div-form-component">
             <label for="lastName" class="input-form-field">Last Name:</label><input type="text" id="lastName"
                 v-model="lastName" required>
         </div>
+
         <div class="div-form-component">
-            <label for="phone" class="input-form-field">Phone Number:</label><input type="tel" id="phone"
-                v-model="phone" required>
+            <label for="regEmail" class="input-form-field">Email:</label><input type="text" id="regEmail" v-model="regEmail"
+                required>
         </div>
         <div class="div-form-component">
-            <label for="email" class="input-form-field">Email:</label><input type="text" id="email" v-model="email"
-                required>
+            <label for="regPassword" class="input-form-field">Password:</label><input type="password" id="regPassword"
+                v-model="regPassword" required>
         </div>
         <div class="div-form-submit">
             <button id="submit">Register</button>
         </div>
-
-
     </form>
+</section>
+<section>
+<h4>Already have an account?</h4>
+<Login />
+</section>
+</div>
 </template>
 
 <script>
 import Banner from '../components/Banner.vue'
+import Login from '@/components/Login.vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import registerUser from '../composables/registerUser'
 
 export default {
-    components: { Banner },
+    components: { Banner, Login },
     setup() {
-        const router = useRouter()
+        
         const firstName = ref('')
         const lastName = ref('')
-        const email = ref('')
-        const phone = ref('')
+        const regEmail = ref('')
+        const regPassword = ref('')
         const submitted = ref(false)
 
 
@@ -57,8 +65,9 @@ export default {
             let user = {
                 firstName: firstName.value,
                 lastName: lastName.value,
-                email: email.value,
-                phone: phone.value
+                email: regEmail.value,
+                password: regPassword.value
+                
             }
             
             await load(user)
@@ -67,8 +76,8 @@ export default {
                 submitted.value = true
                 firstName.value = null
                 lastName.value = null
-                phone.value = null
-                email.value = null
+                regPassword.value = null
+                regEmail.value = null
 
             }
         }
@@ -77,7 +86,7 @@ export default {
 
 
 
-        return { firstName, lastName, email, handleSubmit, submitted, error, userId, phone}
+        return { firstName, lastName, regEmail, regPassword, handleSubmit, submitted, error, userId}
 
     }
 

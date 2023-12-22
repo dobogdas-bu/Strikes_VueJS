@@ -13,12 +13,8 @@
             }" />
             <div class="div-form-component">
                 <label for="name" class="input-form-field">Name:</label>
+                <input type="text" readonly v-model="name" read-only>
 
-                <select @change="handleChange"  id="selectUserId" required>
-                    <option class="input-form-field" selected disabled value="">Select a Player</option>                  
-                    <option class="input-form-field"  v-for="player in players" :key=player.user_id :value="player.user_id">{{ player.first_name }} {{ player.last_name }}</option>
-                    
-                </select>
             </div>
             <div class="div-form-component">
                 <label for="totalScore" class="input-form-field">Total Score:</label><input type="number" step="1" max="300"
@@ -31,12 +27,6 @@
                     <option class="input-form-field"  v-for="game in games" :key=game.game_id :value="game.game_id">{{ game.game_id }}</option>                    
                 </select>
             </div>
-            <div class="div-form-component">
-                <label for="user" class="input-form-field">User ID (for testing purposes):</label>
-                <input type="text"
-                    step="1" max="300" min="0" id="userId" value="1" v-model="userId" readonly>
-            </div>
-
             <div class="div-form-submit">
                 <button id="submit">Submit</button>
             </div>
@@ -48,19 +38,20 @@
 
 <script setup>
 import addScore from '@/composables/addScore';
-import getPlayers from '@/composables/getPlayers'
+import getUsers from '@/composables/getUsers'
 import getGames from '@/composables/getGames'
 import Banner from '../components/Banner.vue'
+import { useUserStore } from '@/stores/UserStore';
 import { ref, defineEmits } from 'vue'
-
+const userStore = useUserStore()
 const emit = defineEmits(['updateScores'])
-const name = ref('')
+const name = ref(userStore.stateUser.first_name +' '+ userStore.stateUser.last_name)
 const totalScore = ref('')
 const submitted = ref(false)
 
 
 //populate players for dropdown, get players composable and destructure
-const { players, errorPlayers, loadPlayers } = getPlayers()
+const { players, errorPlayers, loadPlayers } = getUsers()
 loadPlayers()
 const userId = ref('')
 const gameId=ref('')
@@ -76,7 +67,7 @@ loadGames()
 
 
 function handleChange(){    
-    userId.value = selectUserId.value   
+    userId.value = userStore.stateUser.user_id 
 }
 
 // dummy frames data for fetch request
@@ -109,9 +100,9 @@ const handleSubmit = async () => {
     //check if score object is returned, adjust banner logic accordingly and reset fields
     if (scoreId.value) {
         submitted.value = true
-        selectUserId.value = null
+        
         selectGameId.value = null
-        userId.value = null
+        
         totalScore.value = null
         emit('updateScores')
 

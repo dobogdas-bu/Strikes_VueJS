@@ -18,7 +18,7 @@
             <option>11:00</option>
         </select>
         <select class="input-form-field-amPm" id="amPm" v-model="amPm" @change="handleChange" required>
-            <option class="input-form-field" selected disabled>AM/PM</option>
+            <option class="input-form-field" selected disabled value="">AM/PM</option>
             <option>AM</option>
             <option>PM</option>
         </select>

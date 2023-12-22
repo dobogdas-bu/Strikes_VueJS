@@ -1,29 +1,31 @@
 import { ref} from 'vue'
 
 
+const response = ref(null)
+
+const updateUser = () =>{
 
 
-const registerUser = () =>{
-
-const userId = ref('')
 const error = ref(null)
 
 
 const load = async (userData) =>{
 
-    const url = process.env.VUE_APP_BASEURL+'register'
+    const url = process.env.VUE_APP_BASEURL+'users/'+userData.user_id
 try {
         const res = await fetch(url , {
 
 
-        method: 'POST',
+        method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(userData)
         })
         if(!res.ok){
-            error.value ='Data does not exist'
+            error.value ='Unable to update user'
         }
-        userId.value = await res.json()
+        response.value = res.json()
+        console.log(response.value)
+        
     
         
 } catch (error) {
@@ -31,11 +33,8 @@ try {
      
 }
 }
-return { userId, error, load}  
-
-
-
+return { response, error, load}  
 
 
 }
-export default registerUser
+export default updateUser

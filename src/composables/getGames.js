@@ -8,7 +8,7 @@ const errorGames = ref(null)
 
 const loadGames = async()=> {
 
-const url = 'https://strikes-api.onrender.com/games'
+const url = process.env.VUE_APP_BASEURL+'games'
     try {
         const res = await fetch(url)
         if(!res.ok){

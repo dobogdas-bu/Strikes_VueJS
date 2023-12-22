@@ -1,4 +1,5 @@
 import { ref} from 'vue'
+const baseUrl=process.env.VUE_APP_BASEURL
 
 
 
@@ -11,7 +12,7 @@ const errorAddGame = ref(null)
 
 const loadAddGame = async (gameData) =>{
 
-    const url = 'https://strikes-api.onrender.com/games'
+    const url = baseUrl+'games'
 try {
         const res = await fetch(url , {
 

@@ -4,8 +4,20 @@
 
 <script setup>
 import AddGame from '../components/AddGame.vue'
+
+
+
+</script>
+<script>
+  export default {
+    name: 'Games',
+    inheritAttrs: false,
+    customOptions: {}
+  }
 </script>
 
-<style lang="scss" scoped>
+
+
+<style >
 
 </style>

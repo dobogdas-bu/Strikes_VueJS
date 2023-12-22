@@ -1,13 +1,13 @@
 import {ref} from 'vue'
 
-const getPlayers =()=>{
+const getUsers =()=>{
 
 const players = ref([])
 
 const errorPlayers = ref(null)
 
 const loadPlayers = async()=> {
-    const url = 'https://strikes-api.onrender.com/users'
+    const url = process.env.VUE_APP_BASEURL+'users'
 
     try {
         const res = await fetch(url)
@@ -28,4 +28,4 @@ return {players, errorPlayers, loadPlayers}
 
 }
 
-export default getPlayers
+export default getUsers

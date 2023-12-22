@@ -117,7 +117,7 @@ endTime.value = time.time + time.amPm
 
 const handleSubmit = async () => {
     let gameData = null
-    console.log(existing)
+    
     if(existing.value){
         gameData = {
         
@@ -128,7 +128,7 @@ const handleSubmit = async () => {
         alleyId: alleyId.value
 
         }
-        console.log(gameData)
+        
 
     } else {
 
@@ -141,7 +141,7 @@ const handleSubmit = async () => {
         alleyId: alleyId.value
         
         }
-        console.log(gameData)
+        
     }
     
 

@@ -1,20 +1,7 @@
 <template>
  <section>
             <h2>Locations</h2>
-            <ul class="nav-ul">
-
-                <li><a href="index.html">Home</a></li>
-
-
-                <li><a href="locations.html">Locations</a></li>
-
-
-                <li><a href="rules.html">How to Play</a></li>
-
-
-                <li><a href="register-alley.html">Register Alley</a></li>
-
-            </ul>
+            
             <!-- include links here to different alleys, alley pages can include a side nav for menu, reservations, top scores etc -->
             <p>Here are some Bowling Alley locations in the Cleveland area. More to come!</p>
             <iframe

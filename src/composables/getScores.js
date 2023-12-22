@@ -8,7 +8,7 @@ const error = ref(null)
 
 const load = async()=> {
 
-    const url = 'https://strikes-api.onrender.com/score'
+    const url = process.env.VUE_APP_BASEURL+'score'
     try {
         const res = await fetch(url)
         if(!res.ok){

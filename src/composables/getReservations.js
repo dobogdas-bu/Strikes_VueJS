@@ -8,7 +8,7 @@ const errorReservations = ref(null)
 
 const loadReservations = async()=> {
 
-const url = 'https://strikes-api.onrender.com/reservations'
+const url = process.env.VUE_APP_BASEURL+'reservations'
     try {
         const res = await fetch(url)
         if(!res.ok){

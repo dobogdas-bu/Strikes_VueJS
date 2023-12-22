@@ -61,7 +61,7 @@ export default {
     setup() {
 
 
-        const router = useRouter()
+        
         //refs for form fields
         const alleyName = ref('')
         const alleyAddress = ref('')
@@ -84,14 +84,14 @@ export default {
 
             openTime.value = time.time + time.amPm
 
-            console.log(openTime.value)
+            
      
         }
         //update close time value based on select box change
         function updateClose(time){
 
             closeTime.value = time.time + time.amPm
-            console.log(closeTime.value)
+            
         }
 
         const handleSubmit = async () => {
@@ -106,7 +106,7 @@ export default {
                 closeTime: closeTime.value
             
             }
-            console.log(alley)
+            
             
             await load(alley)
             //check if user object is returned, adjust banner logic accordingly and reset fields

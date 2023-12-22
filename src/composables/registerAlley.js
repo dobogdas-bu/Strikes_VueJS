@@ -12,7 +12,7 @@ const registerAlley = (alleyData) => {
 
     const load = async (alleyData) => {
 
-        const url = 'https://strikes-api.onrender.com/alleys'
+        const url = process.env.VUE_APP_BASEURL+'alleys'
         try {
             const res = await fetch(url, {
 

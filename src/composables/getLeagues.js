@@ -8,7 +8,7 @@ const errorLeagues = ref(null)
 
 const loadLeagues = async()=> {
 
-const url = 'https://strikes-api.onrender.com/leagues'
+const url = process.env.VUE_APP_BASEURL+'leagues'
     try {
         const res = await fetch(url)
         if(!res.ok){
