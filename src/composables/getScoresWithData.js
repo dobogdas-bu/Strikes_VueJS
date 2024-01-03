@@ -22,7 +22,7 @@ const load = async()=> {
         // scores.value.sort((a,b)=> parseInt(b.score)-parseInt(a.score))
     } catch(err){
         error.value = err.message
-        console.log(error.value)
+        
     }
 
 }

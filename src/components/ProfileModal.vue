@@ -1,5 +1,5 @@
 <template>
-    <div class="profile-modal">
+    <div class="profile-modal modal">
         <h2>Profile</h2>
         <p>Hello, {{ userName}}</p>
     <br />
@@ -83,7 +83,6 @@ span:hover {
 .profile-modal {
     display: flex;
     flex-direction: column;
-    padding: 5px;
 }
 #profile-link {
     color:black;

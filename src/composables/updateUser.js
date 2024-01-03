@@ -21,7 +21,7 @@ try {
         body: JSON.stringify(userData)
         })
         if(!res.ok){
-            error.value ='Unable to update user'
+            return error.value ='Unable to update user'
         }
         response.value = res.json()
         console.log(response.value)

@@ -8,7 +8,7 @@
     <ViewAllScores v-if="!sessionStore.showLanding && !userStore.stateUser"></ViewAllScores>
     <LogScore @updateScores="forceRender" v-if="userStore.stateUser"/>
     <section v-if="userStore.stateUser && !sessionStore.showLanding"><ProfileModal /></section>
-    
+    <Team v-if="!sessionStore.showLanding && userStore.stateUser"/>
     <!-- stats component? configure dashboard in settings? -->
 
 </template>
@@ -17,7 +17,7 @@
 
 
 import Scores from '../components/Scores.vue'
-
+import Team from '@/components/Team.vue'
 import LogScore from '../components/LogScore.vue'
 import Landing from './Landing.vue'
 import { useUserStore } from '@/stores/UserStore'

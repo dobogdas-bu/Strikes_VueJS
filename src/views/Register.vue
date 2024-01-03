@@ -25,7 +25,7 @@
                 required>
         </div>
         <div class="div-form-component">
-            <label for="regPassword" class="input-form-field">Password:</label><input type="password" id="regPassword"
+            <label for="regPassword" class="input-form-field">Password:</label><input type="password" id="regPassword" autocomplete="new-password"
                 v-model="regPassword" required>
         </div>
         <div class="div-form-submit">

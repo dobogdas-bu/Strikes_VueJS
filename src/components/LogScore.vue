@@ -1,7 +1,7 @@
 <template>
     <section>
         <h2>Log a Score</h2>
-        <div v-if="!players.length || !games.length" class="spinner"></div>
+        <div v-if="!games.length" class="spinner"></div>
         <form @submit.prevent="handleSubmit" class="form" v-else>
             <Banner v-if="submitted" @closeBanner="() => {
                 submitted = false
@@ -51,8 +51,8 @@ const submitted = ref(false)
 
 
 //populate players for dropdown, get players composable and destructure
-const { players, errorPlayers, loadPlayers } = getUsers()
-loadPlayers()
+// const { players, errorPlayers, loadPlayers } = getUsers()
+// loadPlayers()
 const userId = ref('')
 const gameId=ref('')
 // update userId based on selected value 

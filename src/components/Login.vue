@@ -14,7 +14,7 @@
         </div>
         <div class="div-form-component">
             <label for="password" class="input-form-field">Password:</label><input type="password" id="password"
-                v-model="password" placeholder="Password" required>
+                v-model="password" placeholder="Password" autocomplete="current-password" required>
         </div>
         <div class="div-form-submit">
             <button id="login">Login</button>

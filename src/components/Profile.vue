@@ -48,7 +48,7 @@
     <!-- delete history, payment methods, etc -->
     <div v-if="page === 'settings'"><p>settings will be here ... </p></div>
     <!-- include link to add a team/ manage team -->
-    <div v-if="page === 'teams'"><p>teams will be here</p></div>
+    <div v-if="page === 'teams'"><Team /></div>
     <!-- add league  management if authed such as accept team request request -->
     <div v-if="page === 'leagues'"><p>leagues will be here, </p></div>
     <!-- alley config will be here, add alley management if authed -->
@@ -67,6 +67,7 @@ import { computed } from 'vue';
 import Banner from '../components/Banner.vue'
 import UserStats from './UserStats.vue';
 import updateUser from '../composables/updateUser'
+import Team from './Team.vue';
 
 const submitted = ref(null)
 const firstName = ref('')
@@ -111,10 +112,6 @@ const handleSubmit = async ()=>{
         }    
     
 
-
-
-
-
 }
 
 
@@ -127,7 +124,7 @@ span {
     margin-bottom: 15px;
     border-bottom: 1px solid;
     width: 90%;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     padding-top: 5px;
     padding-left:5px;
     border-radius: 2px 2px 0 0;
