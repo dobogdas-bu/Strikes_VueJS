@@ -12,13 +12,13 @@ const loadPlayers = async()=> {
     try {
         const res = await fetch(url)
         if(!res.ok){
-            error.value ='Data does not exist'
+            error.value ='Error loading users'
         }
         players.value = await res.json()
         // scores.value.sort((a,b)=> parseInt(b.score)-parseInt(a.score))
     } catch(err){
         errorPlayers.value = err.message
-        console.log(errorPlayers.value)
+        
     }
 
 }

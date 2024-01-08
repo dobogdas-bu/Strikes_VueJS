@@ -301,7 +301,7 @@ li {
 .nav-ul a:hover {
     background-color: rgb(178, 129, 223);
     color: white;
-    border-radius: 0;
+    border-radius: 5px;
     box-shadow: inset 0 0 5px 5px rgb(4 0 7 / 44%);
 }
 
@@ -326,6 +326,7 @@ li {
     padding-bottom: 6px;
     margin-bottom: 6px;
     border-radius: 5px;
+    margin-top: 2px;
     opacity: .5;
     display: flex;
     color: white;
@@ -342,6 +343,7 @@ li {
     padding: 5px;
     margin-bottom: 2px;
     border-radius: 5px;
+    margin-top: 2px;
     font-weight: bold;
     opacity: .70;
     display: flex;
@@ -380,7 +382,7 @@ table {
 
 td {
 
-    padding: 2px;
+    padding: 5px;
 
 
 }
@@ -409,7 +411,7 @@ th {
     
 }
 .team-stats section{
-    max-width: 100%;
+    width: 100%;
 }
 
 .modal {
@@ -419,6 +421,9 @@ th {
 .team {
     padding: 2px;    
     border-radius: 5px;
+    width: 100%;
+    table-layout: auto;
+    
 }
 .team th:first-child {
     border-top-left-radius: 5px; /* You can adjust the radius value as needed */
@@ -449,8 +454,7 @@ tr:nth-child(even) {
 }
 
 .stats-table tr:hover {
-    background-color: #2a313a24;
-    
+    background-color: #2a313a24;    
 }
 
 .team-stats tr:hover{
@@ -459,6 +463,12 @@ tr:nth-child(even) {
 }
 .stats {
     border-radius: 3px 3px 0 0;
+}
+
+.table-button{
+    font-size: 1rem;
+    padding: 5px;
+    margin: 2px;
 }
 
 /* Form stuff */
@@ -526,32 +536,24 @@ tr:nth-child(even) {
 
 
 
-
-
-
-
-
 select {
     width: 100%;
     border-bottom: 1px outset;
     padding: 10px;
     background-color: rgb(240, 233, 247);
-    border-radius: 2px 2px 0px 0px;
+    border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
+
+    color: #34455f;
+    font-size: 1rem;
+}
+
+.input-form-field option {
+    color: #34455f;
 }
 
 
-
-#selectLeague {
-
-    border-bottom: 1px outset;
-    width: 95%;
-    background-color: rgb(240, 233, 247);
-    border-radius: 2px 2px 0px 0px;
-    margin: 5px;
-
-}
 
 .rb {
     width: 20px;
@@ -580,18 +582,90 @@ input:read-only {
     color: black;
 }
 
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-right: 5px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .flex{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .flex button{
+    margin-right: 5px;
+  }
 
 
 
-
-
+  .toggle {
+    display: flex;
+    align-items: center;
+    
+  }
 
 input[type=button],
 input[type=submit],
 input[type=reset],
 button {
     display: block;
-
     background: #00ce89;
     color: white;
     padding: 10px;
@@ -606,6 +680,12 @@ button {
 
 button:hover {
     opacity: .75;
+}
+
+button:disabled {
+    opacity:.75;
+    background-color: #212832;
+    cursor: not-allowed;
 }
 
 #loginBtn {
@@ -828,9 +908,15 @@ button:hover {
 
 
 
-
+/*------------------*/
 /* Media query #1 */
 @media all and (max-width: 50em) {
+
+    .time-div {
+
+        grid-template-columns: 60% 30%;
+    
+    }
 
     main {
         padding-left: 1%;
@@ -1007,6 +1093,14 @@ button:hover {
         padding: 2px;
         margin: 0;
         margin-bottom: 5px;
+    }
+
+    table {
+        font-size: .75rem;
+    }
+
+    option {
+        width: 100%;
     }
 
 

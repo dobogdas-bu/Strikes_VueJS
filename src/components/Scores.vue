@@ -7,11 +7,11 @@
         <table v-else class="stats-table">
 
             <th v-if="filter === 'league'" colspan="3">
-                <select v-model="selectLeague" id="selectLeague" class="input-form-field" required>
-                    <option disabled class="input-form-field">Select a League</option>
-                    <option selected class="input-form-field">Local League</option>
-                    <option class="input-form-field">Amateur League</option>
-                    <option class="input-form-field">Pro League</option>
+                <select v-model="selectLeague" id="selectLeague"  required>
+                    <option disabled class="option">Select a League</option>
+                    <option selected class="option">Local League</option>
+                    <option class="option">Amateur League</option>
+                    <option class="option">Pro League</option>
                 </select>
             </th>
 

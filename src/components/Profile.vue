@@ -50,7 +50,7 @@
     <!-- include link to add a team/ manage team -->
     <div v-if="page === 'teams'"><Team /></div>
     <!-- add league  management if authed such as accept team request request -->
-    <div v-if="page === 'leagues'"><p>leagues will be here, </p></div>
+    <div v-if="page === 'leagues'"><League/></div>
     <!-- alley config will be here, add alley management if authed -->
     <div v-if="page === 'alleys'"><p>Alleys!</p></div>
 
@@ -68,6 +68,7 @@ import Banner from '../components/Banner.vue'
 import UserStats from './UserStats.vue';
 import updateUser from '../composables/updateUser'
 import Team from './Team.vue';
+import League from './League.vue';
 
 const submitted = ref(null)
 const firstName = ref('')

@@ -12,7 +12,7 @@ const url = process.env.VUE_APP_BASEURL+'leagues'
     try {
         const res = await fetch(url)
         if(!res.ok){
-            error.value ='Data does not exist'
+            error.value ='Error getting league data.'
         }
         leagues.value = await res.json()
         

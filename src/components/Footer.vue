@@ -1,6 +1,6 @@
 <template>
     <footer>
-        &copy; 2023 David Bogdas
+        &copy; 2024 Strikes
     </footer>
 </template>
 

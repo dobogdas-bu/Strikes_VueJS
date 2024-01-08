@@ -12,7 +12,7 @@ const userTeamError = ref(null)
 
 const loadAddUsertoTeam = async (ut) =>{
 
-    const url = baseUrl+'teams'
+    const url = baseUrl+'teams/addUser'
 try {
         const res = await fetch(url , {
 

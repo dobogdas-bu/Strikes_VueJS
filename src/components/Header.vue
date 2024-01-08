@@ -25,9 +25,9 @@
                 </router-link>
 
 
-                <router-link @click="closeMenu" :to="{ name: 'RegisterAlley' }">
+                <!-- <router-link @click="closeMenu" :to="{ name: 'RegisterAlley' }">
                     <li>Register Alley</li>
-                </router-link>
+                </router-link> -->
 
 
                 <router-link @click="closeMenu" :to="{ name: 'ViewAllScores' }">

@@ -28,6 +28,14 @@
             <label for="phone" class="input-form-field">Contact Phone:</label><input type="tel" id="phone"
                 v-model="phone" required>
         </div>
+        <div class="div-form_component toggle">
+            <label for="access" class="input-form-field switch">
+                <input id = "access" type="checkbox" v-model="isChecked">
+                <span class="slider round"></span>                
+            </label>
+            <label class="input-form-field flex">{{ isChecked ? 'Public Team' : 'Private Team' }}</label>
+            
+        </div>
         <div class="div-form-submit">
             <button id="submit">Register Team</button>
         </div>
@@ -50,18 +58,21 @@ const teamName = ref('')
 const contactName = ref(userStore.stateUser.first_name +' '+ userStore.stateUser.last_name)
 const phone = ref('')
 const email = ref(userStore.stateUser.email)
+const access = ref('')
+const isChecked = ref(false)
 
 const {response, error, loadRegisterTeam} = registerTeam()
 
 
 const handleSubmit = async ()=>{
-
+    access.value = isChecked ? 'O' : 'P'
 const team = {
     teamName : teamName.value,
     contactName: contactName.value,
     phone: phone.value,
     email: email.value,
-    userId: userStore.stateUser.user_id
+    userId: userStore.stateUser.user_id,
+    accessFlag: access.value
 
 }
 
@@ -70,6 +81,7 @@ const team = {
         submitted.value = true
         teamName.value = ''
         phone.value = ''
+        isChecked.value = false
         emit('registered')
         // add new team Id to users State
     }    
