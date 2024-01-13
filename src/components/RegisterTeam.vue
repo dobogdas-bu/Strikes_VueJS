@@ -13,20 +13,20 @@
         <h2>Create Team</h2>
         <div class="div-form-component">
             <label for="teamName" class="input-form-field">Team Name:</label><input type="text" id="teamName"
-                v-model="teamName"  required>
+                v-model="teamName" placeholder="Team Name" required>
         </div>
         <div class="div-form-component">
             <label for="contactName" class="input-form-field">Contact Name:</label><input type="text" id="contactName"
-                v-model="contactName" required>
+                v-model="contactName" placeholder="Contact Name" required>
         </div>
 
         <div class="div-form-component">
             <label for="email" class="input-form-field">Contact Email:</label><input type="text" id="email" v-model="email"
-                required>
+            placeholder="Contact Email" required>
         </div>
         <div class="div-form-component">
             <label for="phone" class="input-form-field">Contact Phone:</label><input type="tel" id="phone"
-                v-model="phone" required>
+                v-model="phone" placeholder="Contact Phone" required>
         </div>
         <div class="div-form_component toggle">
             <label for="access" class="input-form-field switch">
@@ -56,7 +56,7 @@ const router = useRouter()
 const submitted = ref(null)
 const teamName = ref('')
 const contactName = ref(userStore.stateUser.first_name +' '+ userStore.stateUser.last_name)
-const phone = ref('')
+const phone = ref(null)
 const email = ref(userStore.stateUser.email)
 const access = ref('')
 const isChecked = ref(false)

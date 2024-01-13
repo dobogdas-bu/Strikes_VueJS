@@ -6,7 +6,7 @@
             <span  @click="()=>{ return page = 'settings'}">Settings</span>
             <span  @click="()=>{ return page = 'teams'}">Teams</span>
             <span  @click="()=>{ return page = 'leagues'}">Leagues</span>
-            
+            <span @click ="()=>{ return page = 'alleys'}">Alleys</span>
 
         </nav>
 
@@ -34,6 +34,10 @@
                 <label for="email" class="input-form-field">Email:</label><input type="text" id="email" v-model="email"
                 :readonly="readOnly" required>
             </div>
+            <div class="div-form-component">
+                <label for="phone" class="input-form-field">Phone:</label><input type="tel" id="phone" v-model="phone"
+                :readonly="readOnly" required>
+            </div>
 
             <div v-if="readOnly" class="div-form-submit">
                 <button @click="()=>{ readOnly=!readOnly}" id="edit">Edit Profile</button>
@@ -52,7 +56,7 @@
     <!-- add league  management if authed such as accept team request request -->
     <div v-if="page === 'leagues'"><League/></div>
     <!-- alley config will be here, add alley management if authed -->
-    <div v-if="page === 'alleys'"><p>Alleys!</p></div>
+    <div v-if="page === 'alleys'"><RegisterAlley/></div>
 
     
     </div>
@@ -69,6 +73,7 @@ import UserStats from './UserStats.vue';
 import updateUser from '../composables/updateUser'
 import Team from './Team.vue';
 import League from './League.vue';
+import RegisterAlley from '@/views/RegisterAlley.vue';
 
 const submitted = ref(null)
 const firstName = ref('')
@@ -76,6 +81,7 @@ const lastName = ref('')
 const email = ref('')
 const router = useRouter()
 const readOnly=ref(true)
+const phone = ref(null)
 const page= ref('profile')
 
 
@@ -90,6 +96,7 @@ if(!userStore.stateToken){
 firstName.value = userStore.stateUser.first_name
 lastName.value = userStore.stateUser.last_name
 email.value = userStore.stateUser.email
+phone.value = userStore.stateUser.phone
 
 }
 
@@ -99,6 +106,7 @@ const handleSubmit = async ()=>{
         user_id : userStore.stateUser.user_id,
         first_name: firstName.value,
         last_name: lastName.value,
+        phone: phone.value,
         email: email.value
 
     }
@@ -110,6 +118,7 @@ const handleSubmit = async ()=>{
             userStore.stateUser.first_name = firstName.value
             userStore.stateUser.last_name = lastName.value
             userStore.stateUser.email = email.value
+            userStore.stateUser.phone = phone.value
         }    
     
 

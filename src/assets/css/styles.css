@@ -475,6 +475,7 @@ tr:nth-child(even) {
 
 .div-form-component {
     padding-top: 5px;
+    
 }
 
 .div-form-component-rb {
@@ -487,7 +488,7 @@ tr:nth-child(even) {
     color: black;
 
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
 
     margin: 10px 0 10px 0;
     border: none;
@@ -496,12 +497,12 @@ tr:nth-child(even) {
 .div-form-component input {
 
     border: none;
-
+    font-family: 'Inter', sans-serif, 'Trebuchet MS', sans-serif;
     border-bottom: 2px outset;
     padding: 10px;
-    background-color: rgb(240, 233, 247);
-    border-radius: 2px 2px 0px 0px;
-    
+    background-color: rgb(250, 244, 255);
+    border-radius: 5px 5px 0px 0px;
+    font-size: 1rem;
 }
 .div-form-component input:focus {
     border: none;
@@ -540,11 +541,11 @@ select {
     width: 100%;
     border-bottom: 1px outset;
     padding: 10px;
-    background-color: rgb(240, 233, 247);
+    background-color: rgb(250, 244, 255);
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
-
+    font-family: 'Inter', sans-serif, 'Trebuchet MS', sans-serif;
     color: #34455f;
     font-size: 1rem;
 }
@@ -577,9 +578,8 @@ input:disabled {
 
 input:read-only {
     opacity: .75;
-    background-color: #e8cdff;
-    font-weight: 700;
-    color: black;
+    background-color: rgb(250, 244, 255);
+
 }
 
 .switch {
@@ -647,6 +647,11 @@ input:read-only {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+  }
+
+  .flex .div-form-component {
+    margin-right: 5px;
+    flex:1;
   }
 
   .flex button{
@@ -1102,6 +1107,11 @@ button:disabled {
     option {
         width: 100%;
     }
+
+    .flex .div-form-component {
+        flex:none;
+        width: 100%;
+      }
 
 
 }

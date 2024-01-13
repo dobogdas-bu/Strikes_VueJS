@@ -23,6 +23,9 @@
                 <router-link @click="closeMenu" :to="{ name: 'HowToPlay' }">
                     <li>How to Play</li>
                 </router-link>
+                <router-link @click="closeMenu" v-if="userStore.stateToken" :to="{ name: 'NewGame' }">
+                    <li>Start New Game</li>
+                </router-link> 
 
 
                 <!-- <router-link @click="closeMenu" :to="{ name: 'RegisterAlley' }">
@@ -36,6 +39,7 @@
                 <router-link v-if="!userStore.stateToken" @click="closeMenu" :to="{ name: 'Register' }">
                     <li>Create Account</li>
                 </router-link>
+
                 <router-link v-if="!userStore.stateToken" @click="closeMenu" :to="{ name: 'Login' }">
                     <li id="li-login"><button @mouseover="showLogin = true" id="loginBtn">Login</button> </li>
                 </router-link>
@@ -51,13 +55,13 @@
         </nav>
     </header>
     <nav :class="mobileNav">
-        <span>Hello, {{ firstName}}</span>
-        <span @click="()=>{router.push('./profile')}" class ="logout-link">My Account</span>
-        <span @click="()=>{router.push('./log')}" class="logout-link">Log a Score</span>
+        <span>Hello, {{ firstName }}</span>
+        <span @click="() => { router.push('./profile') }" class="logout-link">My Account</span>
+        <span @click="() => { router.push('./log') }" class="logout-link">Log a Score</span>
         <span class="logout-link" @click="handleLogout">Logout</span>
 
     </nav>
-    
+
     <div @click="closeMenu" id="login-container" @mouseleave="showLogin = false" v-if="showLogin">
         <Login ref="login" @closeModal="() => { showLogin = false }" />
     </div>
@@ -87,7 +91,7 @@ const mobileNav = ref('mobileNavHidden')
 if (userStore.stateUser.first_name) firstName.value = userStore.stateUser.first_name
 
 watchEffect(() => {
-    if(userStore.stateToken && userStore.stateUser){
+    if (userStore.stateToken && userStore.stateUser) {
         mobileNav.value = 'mobileNav'
         firstName.value = userStore.stateUser.first_name
     } else {
@@ -125,12 +129,10 @@ const handleLogout = async () => {
     userStore.setStats('')
     router.push('/')
 
-    
+
 
 }
 
 </script>
 
-<style>
-
-</style>
+<style></style>

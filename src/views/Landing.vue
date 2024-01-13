@@ -4,7 +4,7 @@
     <div class="content">
         <p id="welcome">Welcome to Strikes!</p>
         <Login>
-            <p>Please Login or select <span @click="()=>{ sessionStore.setLanding(false) }">continue as guest</span>.</p>
+            <p><span @click="()=>{ sessionStore.setLanding(false) }">Continue as guest</span></p>
         </Login>
         <span>Forgot Email or Password?</span>
     </div>

@@ -1,5 +1,5 @@
 <template>
-<main class="main-grid"> 
+
     <section>
         <article>
         <h2>Create an Account</h2>
@@ -77,7 +77,7 @@
             How to Score: The score for the 10th frame is the total number of pins knocked down in the 10th frame.</p>
 
         </section>
-        </main>
+        
 </template>
 
 <script>

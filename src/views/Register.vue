@@ -13,20 +13,24 @@
         <h2>Create Account</h2>
         <div class="div-form-component">
             <label for="firstName" class="input-form-field">First Name:</label><input type="text" id="firstName"
-                v-model="firstName"  required>
+                v-model="firstName" placeholder="First Name" required>
         </div>
         <div class="div-form-component">
             <label for="lastName" class="input-form-field">Last Name:</label><input type="text" id="lastName"
-                v-model="lastName" required>
+                v-model="lastName" placeholder="Last Name" required>
         </div>
 
         <div class="div-form-component">
             <label for="regEmail" class="input-form-field">Email:</label><input type="text" id="regEmail" v-model="regEmail"
-                required>
+            placeholder="Email" required>
+        </div>
+        <div class="div-form-component">
+            <label for="regPhone" class="input-form-field">Phone:</label><input type="tel" id="regPhone" v-model="regPhone"
+            placeholder="Phone (Optional)">
         </div>
         <div class="div-form-component">
             <label for="regPassword" class="input-form-field">Password:</label><input type="password" id="regPassword" autocomplete="new-password"
-                v-model="regPassword" required>
+                v-model="regPassword" placeholder="Password" required>
         </div>
         <div class="div-form-submit">
             <button id="submit">Register</button>
@@ -52,22 +56,25 @@ export default {
     components: { Banner, Login },
     setup() {
         const userStore = useUserStore()
-        const firstName = ref('')
-        const lastName = ref('')
-        const regEmail = ref('')
-        const regPassword = ref('')
+        const firstName = ref(null)
+        const lastName = ref(null)
+        const regEmail = ref(null)
+        const regPassword = ref(null)
         const submitted = ref(false)
         const router = useRouter()
+        const regPhone = ref(null)
 
 
         const { userId, error, load } = registerUser()
         const { user ,errorLogin, loadLogin } = login()
 
         const handleSubmit = async () => {
+
             let newUser = {
                 firstName: firstName.value,
                 lastName: lastName.value,
-                email: regEmail.value,
+                phone: regPhone.value,
+                email: regEmail.value,                
                 password: regPassword.value
                 
             }
@@ -79,7 +86,8 @@ export default {
                 firstName.value = null
                 lastName.value = null
                 regPassword.value = null
-                regEmail.value = null
+                regEmail.value = null,
+                regPhone.value = null,
                 await loadLogin({"email":newUser.email, "password": newUser.password})
                 if(user){
                     userStore.setUser(user.value)
@@ -94,7 +102,7 @@ export default {
 
 
 
-        return { firstName, lastName, regEmail, regPassword, handleSubmit, submitted, error, userId, userStore}
+        return { firstName, lastName, regPhone, regEmail, regPassword, handleSubmit, submitted, error, userId, userStore}
 
     }
 

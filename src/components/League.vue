@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="modal">
+        
             <h2>Leagues</h2>
 
             <h3>Public Leagues</h3>
@@ -28,7 +28,7 @@
             </section>
             <button @click="() => { return showRegister = !showRegister }">Create New League</button>
             <RegisterLeague v-if="showRegister" />
-        </div>
+        
     </section>
 </template>
 

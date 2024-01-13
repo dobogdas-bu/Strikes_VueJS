@@ -13,20 +13,20 @@
         <h2>Create League</h2>
         <div class="div-form-component">
             <label for="leagueName" class="input-form-field">League Name:</label><input type="text" id="leagueName"
-                v-model="leagueName" required>
+                v-model="leagueName" placeholder="League Name" required>
         </div>
         <div class="div-form-component">
             <label for="adminName" class="input-form-field">Admin Name:</label><input type="text" id="adminName"
-                v-model="adminName" required>
+                v-model="adminName" placeholder="Admin Name" required>
         </div>
 
         <div class="div-form-component">
             <label for="email" class="input-form-field">Contact Email:</label><input type="text" id="email" v-model="email"
-                required>
+            placeholder="Contact Email" required>
         </div>
         <div class="div-form-component">
             <label for="phone" class="input-form-field">Contact Phone:</label><input type="tel" id="phone" v-model="phone"
-                required>
+            placeholder="Contact Phone" required>
         </div>
         <div class="div-form-component">
             <label for="startDate" class="input-form-field">Start Date:</label><input type="date" id="startDate"
@@ -37,7 +37,7 @@
                 v-model="endDate">
         </div>
         <div class="div-form-component">
-            <label for="skill" class="input-form-field">Skill Level:</label><input type="text" id="skill" v-model="skill"
+            <label for="skill" class="input-form-field">Skill Level:</label><input type="text" id="skill" v-model="skill" placeholder="Skill Level"
                 disabled>
         </div>
         <div class="div-form_component toggle">
@@ -66,7 +66,7 @@ const submitted = ref(null)
 const leagueName = ref('')
 const adminName = ref(userStore.stateUser.first_name + ' ' + userStore.stateUser.last_name)
 const email = ref(userStore.stateUser.email)
-const phone = ref('')
+const phone = ref(null)
 const startDate = ref('')
 const endDate = ref('')
 const access = ref('')

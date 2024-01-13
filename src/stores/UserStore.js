@@ -29,32 +29,3 @@ export const useUserStore = defineStore('UserStore', {
     },
 });
 
-// import { defineStore } from "pinia";
-
-// // import user data?
-// import { ref } from 'vue'
-
-// export const useUserStore = defineStore("UserStore", ()=>{
-    
-//     const stateToken = ref('')
-//     const stateUser = ref('')
-
-//     function setUser(authed) {
-//         const { accessToken, user } = authed
-        
-        
-//         stateUser.value = user
-//         stateToken.value = accessToken
-
-//     }
-
-
-
-
-
-//     return {
-//         stateToken, stateUser, setUser,     persist: {
-//             storage : sessionStorage
-//         }
-//     }
-// })
