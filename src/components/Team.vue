@@ -1,4 +1,5 @@
 <template>
+
     <section>
 
         <h2>Teams</h2>
@@ -23,7 +24,7 @@
             <h3 v-else>{{ teams.teams[0].team_name }}</h3>
             <div class="team-stats">
                 <section v-if="games.length">
-                    <table class="team">
+                    <table class="stats-table">
                         <tr>
                             <th>
                                 Date
@@ -41,7 +42,7 @@
                     </table>
                 </section>
                 <section>
-                    <table class="team">
+                    <table class="stats-table">
                         <tr>
 
                             <th colspan="2">Players</th>
@@ -101,10 +102,8 @@
 
 
 
-
-
-
     </section>
+
 </template>
 
 <script setup>

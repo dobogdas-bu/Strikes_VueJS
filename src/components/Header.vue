@@ -23,9 +23,9 @@
                 <router-link @click="closeMenu" :to="{ name: 'HowToPlay' }">
                     <li>How to Play</li>
                 </router-link>
-                <router-link @click="closeMenu" v-if="userStore.stateToken" :to="{ name: 'NewGame' }">
+                <!-- <router-link @click="closeMenu" v-if="userStore.stateToken" :to="{ name: 'NewGame' }">
                     <li>Start New Game</li>
-                </router-link> 
+                </router-link>  -->
 
 
                 <!-- <router-link @click="closeMenu" :to="{ name: 'RegisterAlley' }">
