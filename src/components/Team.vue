@@ -50,7 +50,7 @@
                         </tr>
                         <tr v-for="player in teamPlayers">
                             <td>{{ player.first_name }} {{ player.last_name }}</td>
-                            <td>{{ player.email }} / {{ player.phone_number }}</td>
+                            <td>{{ player.email }} / {{ player.phone }}</td>
                         </tr>
 
                     </table>
