@@ -1,7 +1,7 @@
 <template>
 
   <Header  v-if="!sessionStore.showLanding"/>
-    <Banner  v-if="submitted" @closeBanner="() => {
+    <Banner  style="border-radius:2px;margin: 0px; opacity: 1;" v-if="submitted" @closeBanner="() => {
         submitted = false
     }">
         <p style="margin-left: 10px;">Login to start new game.</p>
