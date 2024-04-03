@@ -81,4 +81,8 @@ function formatDate(date) {
 
 </script>
 
-<style></style>
+<style>
+.multiselect__tags {
+    border: 1px solid #0000003b;
+}
+</style>

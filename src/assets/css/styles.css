@@ -128,11 +128,12 @@ p {
 
 section {
     align-self: flex-start;    
-    box-shadow: 1px 1px 2px 1px gray;
+    /* box-shadow: 1px 1px 2px 1px gray; */
     list-style: none;
     border-radius: 5px;
     margin: 5px;
     padding: 2px;
+    border: 1px solid;
     
 
 }
@@ -152,6 +153,7 @@ section {
         position: sticky;
         top: 0;
         background: #313B4A;
+        align-items: center;
     }
 
 
@@ -224,7 +226,8 @@ li {
     text-decoration: none;
     color: #313B4A;
     font-weight: 500;
-    padding: 2px;   
+    padding: 2px;
+    margin-top:25px;
 
 }
 
@@ -247,8 +250,7 @@ li {
 }
 
 #home-link {
-
-
+    flex-direction: column;
     display: flex;
     align-items: center;
     font-style: italic;
@@ -368,10 +370,10 @@ li {
 /* Table formatting */
 
 table {
-    color: white;
+    color: #313B4A;
     border: none;
     text-align: left;  
-    background: #313b4a4f;
+    /* background: #313b4a4f; */
     border-collapse: separate;
     border-spacing: 0;
     
@@ -397,7 +399,7 @@ th {
     color: white;
     font-weight: 500;
     border-bottom: solid 2px;
-    background: #28374b8c;
+    background: rgb(0 43 84 / 40%);
 
 }
 
@@ -438,7 +440,7 @@ th {
 
 .table-link {
     text-decoration: underline;
-    color: white;
+    color: #313B4A;
 }
 
 
@@ -446,11 +448,11 @@ th {
 tr:nth-child(even) {
     /* background-color: rgb(205, 182, 227); */
     /* background: #28374b8c; */
-    background: #f812f02d;
+    background: #6271f31c;
 }
 
 .stats-table tr:hover {
-    background-color: #2a313a24;    
+    background-color: #6271f31c;    
 }
 
 .team-stats tr:hover{
@@ -939,6 +941,7 @@ button:disabled {
         position: static;
         width: 100%;
         margin-bottom: 5px;
+        margin-top: 0px;
     }
     .sidenav span{
         margin-bottom: 2px;
