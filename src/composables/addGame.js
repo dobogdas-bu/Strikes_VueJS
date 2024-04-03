@@ -21,8 +21,8 @@ try {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(gameData)
         })
-        if(!res.ok){
-            error.value ='Data does not exist'
+        if(!res.ok){            
+            return errorAddGame.value ='Error processing request'
         }
         gameId.value = await res.json()
     

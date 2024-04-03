@@ -132,7 +132,7 @@ const handleSubmit = async ()=>{
 
 span {
     margin-bottom: 15px;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #bebebe;
     width: 90%;
     padding-bottom: 5px;
     padding-top: 5px;

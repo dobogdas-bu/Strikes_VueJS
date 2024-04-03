@@ -19,7 +19,7 @@ const load = async()=> {
         }
         
         scores.value = await res.json()
-        // scores.value.sort((a,b)=> parseInt(b.score)-parseInt(a.score))
+        
     } catch(err){
         error.value = err.message
         

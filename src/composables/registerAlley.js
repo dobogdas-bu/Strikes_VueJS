@@ -21,7 +21,7 @@ const registerAlley = (alleyData) => {
                 body: JSON.stringify(alleyData)
             })
             if (!res.ok) {
-                error.value ='Data does not exist'
+                error.value ='Error processing request.'
             }
             alleyId.value = await res.json()
 
