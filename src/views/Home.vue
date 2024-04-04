@@ -3,9 +3,9 @@
     <Landing v-if="sessionStore.showLanding" />
     <!-- route to view all scores if users isn't logged in -->
 
-    <Scores :filter="'league'" :key="compKey" v-if="!sessionStore.showLanding && userStore.stateUser">
+    <!-- <Scores :filter="'league'" :key="compKey" v-if="!sessionStore.showLanding && userStore.stateUser">
         <h2 class="stats">League Play</h2>
-    </Scores>
+    </Scores> -->
     <Scores :filter="'all'" :key="compKey" v-if="!sessionStore.showLanding && userStore.stateUser">
         <h2 class="stats">All Time</h2>
     </Scores>
@@ -15,11 +15,12 @@
     </Scores>
     <ViewAllScores v-if="!sessionStore.showLanding && !userStore.stateUser"></ViewAllScores>
     <LogScore @updateScores="forceRender" v-if="userStore.stateUser" />
+
+    <Team v-if="!sessionStore.showLanding && userStore.stateUser" />
+    <League v-if="!sessionStore.showLanding && userStore.stateUser" />
     <section v-if="userStore.stateUser && !sessionStore.showLanding">
         <ProfileModal />
     </section>
-    <Team v-if="!sessionStore.showLanding && userStore.stateUser" />
-    <League v-if="!sessionStore.showLanding && userStore.stateUser" />
     <!-- stats component? configure dashboard in settings? -->
 </template>
 
