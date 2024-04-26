@@ -66,13 +66,15 @@ const handleSubmit = async () => {
 
 
     if (user.value) {
+        
         password.value = ''
         email.value = ''
         emit('closeModal')
+        
         userStore.setUser(user.value)
         sessionStore.setLanding(false)
 
-        // router.push('/')
+        router.push('/')
     }
     if (errorLogin) {
 

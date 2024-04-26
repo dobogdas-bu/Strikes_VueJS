@@ -2,8 +2,7 @@ import { defineStore } from 'pinia';
 
 export const useUserStore = defineStore('UserStore', {
     // Define state as a function returning the state object
-    state: () => ({
-        stateToken: '',
+    state: () => ({        
         stateUser: '',
         stats: null,
     }),
@@ -11,9 +10,10 @@ export const useUserStore = defineStore('UserStore', {
     // Define actions
     actions: {
         setUser(authed) {
-            const { accessToken, user } = authed;
-            this.stateUser = user;
-            this.stateToken = accessToken;
+            
+            const  user  = authed;
+            this.stateUser = user;   
+                  
         },
         setStats(stats){
             

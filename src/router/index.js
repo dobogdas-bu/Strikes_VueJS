@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Locations from '../views/Locations.vue'
+
 import RegisterAlley from '../views/RegisterAlley.vue'
 import Register from '../views/Register.vue'
-import HowToPlay from '../views/HowToPlay.vue'
+
 import ViewAllScores from '../views/ViewAllScores.vue'
 import Games from '../views/Games'
 import PrivacyPolicy from '../views/PrivacyPolicy.vue'
@@ -37,16 +37,6 @@ const routes = [
     meta: {
       requiresAuth: true
     }
-  },
-  {
-    path: '/locations',
-    name: 'Locations',
-    component: Locations
-  },
-  {
-    path: '/how-to-play',
-    name: 'HowToPlay',
-    component: HowToPlay
   },
   {
     path: '/login',

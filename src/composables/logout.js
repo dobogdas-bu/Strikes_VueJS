@@ -14,7 +14,11 @@ const logout = () => {
 
         const url = baseUrl + 'logout'
         try {
-            const res = await fetch(url,{ credentials: "include"})
+            const res = await fetch(url,{ 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include'
+            })
             if (!res.ok) {
                 error.value = 'Data does not exist'
             }

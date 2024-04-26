@@ -259,7 +259,6 @@ li {
     font-style: italic;
     display: flex;
 
-    width: 45%;
 
 }
 
@@ -665,6 +664,11 @@ input:read-only {
     display: flex;
     align-items: center;
     
+  }
+
+  form{
+    width: 100%;
+    box-sizing: border-box;
   }
 
 input[type=button],

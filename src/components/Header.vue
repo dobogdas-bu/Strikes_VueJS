@@ -14,15 +14,6 @@
                     <li>Home</li>
                 </router-link>
 
-
-                <router-link @click="closeMenu" :to="{ name: 'Locations' }">
-                    <li>Locations</li>
-                </router-link>
-
-
-                <router-link @click="closeMenu" :to="{ name: 'HowToPlay' }">
-                    <li>How to Play</li>
-                </router-link>
                 <!-- <router-link @click="closeMenu" v-if="userStore.stateToken" :to="{ name: 'NewGame' }">
                     <li>Start New Game</li>
                 </router-link>  -->
@@ -36,11 +27,11 @@
                 <router-link @click="closeMenu" :to="{ name: 'ViewAllScores' }">
                     <li>View All Scores</li>
                 </router-link>
-                <router-link v-if="!userStore.stateToken" @click="closeMenu" :to="{ name: 'Register' }">
+                <router-link v-if="!userStore.stateUser" @click="closeMenu" :to="{ name: 'Register' }">
                     <li>Create Account</li>
                 </router-link>
 
-                <router-link v-if="!userStore.stateToken" @click="closeMenu" :to="{ name: 'Login' }">
+                <router-link v-if="!userStore.stateUser" @click="closeMenu" :to="{ name: 'Login' }">
                     <li id="li-login"><button @mouseover="showLogin = true" id="loginBtn">Login</button> </li>
                 </router-link>
                 <router-link @click="closeMenu" :to="{ name: 'Profile' }" @mouseover="showAccount = true" v-else>
@@ -124,10 +115,15 @@ const handleLogout = async () => {
     await loadLogout()
 
 
-
+    if(res){
     userStore.setUser('')
     userStore.setStats('')
     router.push('/')
+    }
+    if(errorLogout){
+        console.log(errorLogout)
+    }
+
 
 
 
